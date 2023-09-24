@@ -56,6 +56,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   void _incrementCounter() {
     setState(() {
@@ -79,6 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      key: scaffoldKey,
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
@@ -87,7 +89,15 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        leading: IconButton(
+            icon: const Icon(Icons.mail), // Use your desired leading icon (e.g., menu)
+            onPressed: () {
+              scaffoldKey.currentState?.openDrawer();
+            }),
       ),
+      drawer: const Drawer(
+      ),
+
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
