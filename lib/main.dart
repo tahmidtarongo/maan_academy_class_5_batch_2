@@ -95,8 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
               scaffoldKey.currentState?.openDrawer();
             }),
       ),
-      drawer: const Drawer(
-      ),
+      drawer: const Drawer(),
 
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
